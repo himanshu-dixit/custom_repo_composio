@@ -1,0 +1,22 @@
+name: Github
+unique_key: github
+description: A platform for version control and collaboration, allowing you to work together on projects from anywhere.
+logo: https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png
+categories: [ dev-tools, version-control, collaboration ]
+documentation_doc_text: "This a test documentation docs"
+configuration_docs_text: "This a test configuration docs"
+status: "production_ready"
+get_current_user_endpoint: "/user"
+
+auth_schemes:
+  - scheme_name: github_oauth
+    auth_mode: OAUTH2
+   
+    # client_id, client_secret will be provided by the user.
+    # default parameters and fields will be identified from auth_mode
+    authorization_url: "https://github.com/login/oauth/authorize"
+    token_url: "https://github.com/login/oauth/access_token"
+    proxy:
+      base_url: "https://api.github.com"
+    default_scopes: ["repo", "admin:org", "gist", "user"]
+    token_response_metadata: [access_token, scope, token_type, user_id]
