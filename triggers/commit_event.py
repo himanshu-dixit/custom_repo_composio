@@ -23,9 +23,7 @@ class CommitEvent(Trigger):
     _payload_schema = CommitPayloadSchema
     _trigger_instructions = "This trigger fires every time a new commit is pushed to the repository."
     _trigger_config_schema = WebhookConfigSchema
-    
-    def check_and_convert_to_identifier_payload_schema(self, data: dict) -> (bool, str, CommitPayloadSchema):
-        print("Github Event", data.get('headers', {}).get('x-github-event')) 
+    ("Github Event", data.get('headers', {}).get('x-github-event')) 
         print("Github Hook ID", data.get('headers', {}).get('x-github-hook-id'))
         headers = data.get('headers', {})
         github_event = headers.get('x-github-event', '')
